@@ -20,6 +20,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#ifdef TAPPING_TERM
+#undef TAPPING_TERM
+#endif
+// #define TAPPING_TERM 225
+// #define PREVENT_STUCK_MODIFIERS
+
+// Configure the global tapping term (default: 200ms)
+#define TAPPING_TERM 200
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
+// #define QUICK_TAP_TERM 0
+
 /* Select hand configuration */
 
 #define MASTER_LEFT
