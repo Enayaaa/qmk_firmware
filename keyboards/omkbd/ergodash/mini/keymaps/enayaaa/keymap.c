@@ -57,9 +57,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT(
     US_TILD, US_1,    US_2,    US_3,    US_4,    US_5,    US_UNDS,                        US_PLUS, US_6,    US_7,    US_8,    US_9,    US_0,    US_ARNG,
-    _______, US_CIRC, US_AMPR, US_LPRN, US_RPRN, US_ASTR, US_LCBR,                        KC_RCBR, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, US_ODIA, US_ADIA,
+    _______, US_CIRC, US_AMPR, US_LPRN, US_RPRN, US_ASTR, US_LCBR,                        KC_RCBR, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, US_ODIA, RG(US_ADIA),
     _______, US_EXLM, US_AT,   US_HASH, US_DLR,  US_PERC, XXXXXXX,                        XXXXXXX, US_ACUT, US_GRV,  KC_LT,   KC_GT,   US_QUES, _______,
-    _______, _______, _______, _______,          _______, _______, _______,      _______, _______, _______,          KC_HOME, KC_PGDN, KC_PGUP, KC_END
+    _______, _______, _______, _______,          _______, _______, _______,      _______, _______, _______,          KC_HOME, KC_PGDN, KC_PGUP, LC(KC_END)
   ),
   // [_LOWER] = LAYOUT(
   //   US_TILD, US_1,        US_2,        US_3,        US_4,        US_5,    US_UNDS,                        US_PLUS, US_6,    US_7,        US_8,        US_9,        US_0,        US_ARNG,
@@ -70,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //
   [_RAISE] = LAYOUT(
     US_TILD, US_1,    US_2,    US_3,    US_4,    US_5,    US_UNDS,                        US_PLUS, US_6,    US_7,    US_8,    US_9,    US_0,    US_ARNG,
-    _______, US_CIRC, US_AMPR, US_LPRN, US_RPRN, US_ASTR, US_LCBR,                        KC_RCBR, US_H,    US_J,    US_K,    US_L,    US_ODIA, US_ADIA,
+    _______, US_CIRC, US_AMPR, US_LPRN, US_RPRN, US_ASTR, US_LCBR,                        KC_RCBR, US_H,    US_J,    US_K,    US_L,    US_ODIA, RG(US_ADIA),
     _______, US_EXLM, US_AT,   US_HASH, US_DLR,  US_PERC, XXXXXXX,                        XXXXXXX, US_ACUT, US_GRV,  KC_LT,   KC_GT,   US_QUES, _______,
-    _______, _______, _______, _______,          _______, _______, _______,      _______, _______, _______,          KC_HOME, KC_PGDN, KC_PGUP, KC_END
+    _______, _______, _______, _______,          _______, _______, _______,      _______, _______, _______,          KC_HOME, KC_PGDN, KC_PGUP, LC(KC_END)
   ),
   // [_RAISE] = LAYOUT(
   //   US_TILD, US_1,        US_2,        US_3,        US_4,        US_5,    US_UNDS,                        US_PLUS, US_6,    US_7,        US_8,        US_9,        US_0,        US_ARNG,
