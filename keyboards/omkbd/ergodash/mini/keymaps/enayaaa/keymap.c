@@ -4,11 +4,11 @@
 
 
 enum layer_names {
-    _CMDH,
-    _QWERTY,
-    _LOWER,
-    _RAISE,
-    _ADJUST
+  _CMDH,
+  _QWERTY,
+  _LOWER,
+  _RAISE,
+  _ADJUST
 };
 
 enum custom_keycodes {
@@ -25,7 +25,7 @@ enum {
 };
 
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_LGUI_TOGGLE_QWERTY] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_LGUI, _QWERTY),
+  [TD_LGUI_TOGGLE_QWERTY] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_LGUI, _QWERTY),
 };
 
 #define LG_TQWE TD(TD_LGUI_TOGGLE_QWERTY)
