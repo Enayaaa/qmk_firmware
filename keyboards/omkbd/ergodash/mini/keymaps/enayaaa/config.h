@@ -29,8 +29,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 // #define QUICK_TAP_TERM 0
 
-/* Select hand configuration */
+/* Caps word activation (all caps for next word) with left+right shift */
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD      // one method.
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD // another method.
+#define CAPS_WORD_INVERT_ON_SHIFT           // left-shift not considered word-break
 
+/* For per layer underglow lighting */
+#define RGBLIGHT_LAYERS
+#define SPLIT_LAYER_STATE_ENABLE
+
+/* Select hand configuration */
 #define MASTER_LEFT
 // #define MASTER_RIGHT
 // #define EE_HANDS

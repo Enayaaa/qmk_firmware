@@ -122,3 +122,70 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+#define HSV_MY_PURPLE    191, 255, 100
+#define HSV_MY_MAGENTA   213, 255, 100
+#define HSV_MY_RED       0,   255, 100
+#define HSV_MY_BLUE      170, 255, 100
+
+const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {6, 4, HSV_RED},       // Light 4 LEDs, starting with LED 6
+    {12, 4, HSV_RED}       // Light 4 LEDs, starting with LED 12
+);
+const rgblight_segment_t PROGMEM my_cmdh_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    // {0, 20, HSV_GREEN}
+    {}
+);
+const rgblight_segment_t PROGMEM my_lower_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {9, 1, HSV_MY_PURPLE},
+    {19, 1, HSV_MY_PURPLE}
+);
+const rgblight_segment_t PROGMEM my_raise_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {9, 1, HSV_MY_MAGENTA},
+    {19, 1, HSV_MY_MAGENTA}
+);
+const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {9, 1, HSV_MY_RED},
+    {19, 1, HSV_MY_RED}
+);
+const rgblight_segment_t PROGMEM my_qwerty_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 3, HSV_MY_BLUE},
+    {10, 3, HSV_MY_BLUE},
+    {7, 1, HSV_MY_BLUE},
+    {17, 1, HSV_MY_BLUE}
+);
+
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_capslock_layer,
+    my_cmdh_layer,
+    my_lower_layer,
+    my_raise_layer,
+    my_adjust_layer,
+    my_qwerty_layer
+);
+
+bool led_update_user(led_t led_state) {
+    rgblight_set_layer_state(0, led_state.caps_lock);
+    return true;
+}
+
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(1, layer_state_cmp(state, _CMDH));
+    return state;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(2, layer_state_cmp(state, _LOWER));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _RAISE));
+    rgblight_set_layer_state(4, layer_state_cmp(state, _ADJUST));
+    rgblight_set_layer_state(5, layer_state_cmp(state, _QWERTY));
+    return state;
+}
+
+void keyboard_post_init_user() {
+    // Turn on Autocorect feature on startup.
+    tap_code16(QK_AUTOCORRECT_ON);
+
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+}
