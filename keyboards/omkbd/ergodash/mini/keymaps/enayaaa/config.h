@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Caps word activation (all caps for next word) with left+right shift */
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD      // one method.
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD // another method.
+// #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD // another method.
 #define CAPS_WORD_INVERT_ON_SHIFT           // left-shift not considered word-break
 
 /* For per layer underglow lighting */
