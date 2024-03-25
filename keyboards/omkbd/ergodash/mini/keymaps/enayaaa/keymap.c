@@ -8,6 +8,7 @@ enum layer_names {
   _QWERTY,
   _LOWER,
   _RAISE,
+  _WORKSPACE,
   _ADJUST
 };
 
@@ -42,20 +43,22 @@ tap_dance_action_t tap_dance_actions[] = {
 #define RC(kc) RCTL_T(kc)
 #define RS(kc) RSFT_T(kc)
 
+#define LT_WLEF LT(_WORKSPACE, KC_LEFT)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_CMDH] = LAYOUT(
     KC_TAB,  US_Q,    US_W,    US_F,    US_P,    US_B,    US_MINS,                        US_EQL , US_J,    US_L,    US_U,    US_Y,    US_SCLN, US_BSLS,
     LG(KC_ESC),US_A,  US_R,    US_S,    US_T,    US_G,    US_LBRC,                        US_RBRC, US_M,    US_N,    US_E,    US_I,    US_O,    RG(US_QUOT),
     KC_LSFT, US_Z,    US_X,    US_C,    US_D,    US_V,    XXXXXXX,                        XXXXXXX, US_K,    US_H,    US_COMM, US_DOT,  US_SLSH, KC_RSFT,
-    KC_LCTL, AG_CAPS, LG_TQWE, KC_LALT,          LOWER,   KC_SPC , KC_DEL,       KC_ENT,  KC_BSPC, RAISE,            KC_LEFT, KC_DOWN, KC_UP,   LC(KC_RGHT)
+    KC_LCTL, AG_CAPS, LG_TQWE, KC_LALT,          LOWER,   KC_SPC , KC_DEL,       KC_ENT,  KC_BSPC, RAISE,            LT_WLEF, KC_DOWN, KC_UP,   LC(KC_RGHT)
   ),
 
   [_QWERTY] = LAYOUT(
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_MINS,                        KC_EQL , KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
     LG(KC_ESC),KC_A,  KC_S,    KC_D,    KC_F,    KC_G,    KC_LBRC,                        KC_RBRC, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, RG(KC_QUOT),
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_SPC ,                        KC_BSPC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    KC_LCTL, AG_CAPS, LG_TQWE, KC_LALT,          LOWER,   KC_SPC , KC_DEL,       KC_ENT,  KC_BSPC, RAISE,            KC_LEFT, KC_DOWN, KC_UP,   LC(KC_RGHT)
+    KC_LCTL, AG_CAPS, LG_TQWE, KC_LALT,          LOWER,   KC_SPC , KC_DEL,       KC_ENT,  KC_BSPC, RAISE,            LT_WLEF, KC_DOWN, KC_UP,   LC(KC_RGHT)
   ),
 
   [_LOWER] = LAYOUT(
@@ -70,6 +73,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, US_CIRC, US_AMPR, US_LPRN, US_RPRN, US_ASTR, US_LCBR,                        KC_RCBR, US_H,    US_J,    US_K,    US_L,    US_ODIA, RG(US_ADIA),
     _______, US_EXLM, US_AT,   US_HASH, US_DLR,  US_PERC, XXXXXXX,                        XXXXXXX, US_ACUT, US_GRV,  US_SCLN, US_COLN, US_MINS, _______,
     _______, _______, _______, _______,          _______, _______, _______,      _______, _______, _______,          KC_HOME, KC_PGDN, KC_PGUP, LC(KC_END)
+  ),
+
+  [_WORKSPACE] = LAYOUT(
+    XXXXXXX, G(US_1), G(US_2), G(US_3), G(US_4), G(US_5), XXXXXXX,                        XXXXXXX, G(US_6), G(US_7), G(US_8), G(US_9), G(US_0), XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, KC_LSFT, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
   [_ADJUST] = LAYOUT(
